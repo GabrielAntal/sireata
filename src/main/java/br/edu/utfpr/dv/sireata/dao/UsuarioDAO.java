@@ -13,99 +13,71 @@ import br.edu.utfpr.dv.sireata.model.Usuario;
 public class UsuarioDAO {
 	
 	public Usuario buscarPorLogin(String login) throws SQLException{
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE login = ?");
-		
+	
+		try(	Connection conn = ConnectionDAO.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE login = ?");
+				){
+
 			stmt.setString(1, login);
 			
-			rs = stmt.executeQuery();
-			
-			if(rs.next()){
-				return this.carregarObjeto(rs);
-			}else{
-				return null;
+			try (ResultSet  rs = stmt.executeQuery()){
+				if(rs.next()){
+					return this.carregarObjeto(rs);
+				}else{
+					return null;
+				}
 			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			
+			
 		}
 	}
 	
 	public Usuario buscarPorId(int id) throws SQLException{
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE idUsuario = ?");
-		
+		try(		Connection conn = ConnectionDAO.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE idUsuario = ?")){
+
 			stmt.setInt(1, id);
 			
-			rs = stmt.executeQuery();
-			
-			if(rs.next()){
-				return this.carregarObjeto(rs);
-			}else{
-				return null;
+			try(ResultSet rs = stmt.executeQuery()){
+				if(rs.next()){
+					return this.carregarObjeto(rs);
+				}else{
+					return null;
+				}
 			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+
 		}
 	}
 	
 	public String buscarEmail(int id) throws SQLException{
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement("SELECT email FROM usuarios WHERE idUsuario = ?");
-		
+		try(		
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement("SELECT email FROM usuarios WHERE idUsuario = ?")
+			){
+
 			stmt.setInt(1, id);
 			
-			rs = stmt.executeQuery();
-			
-			if(rs.next()){
-				return rs.getString("email");
-			}else{
-				return "";
+			try(ResultSet rs = stmt.executeQuery()){
+				if(rs.next()){
+					return rs.getString("email");
+				}else{
+					return "";
+				}
 			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+
 		}
 	}
 	
 	public List<Usuario> listarTodos(boolean apenasAtivos) throws SQLException{
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.createStatement();
-		
-			rs = stmt.executeQuery("SELECT * FROM usuarios WHERE login <> 'admin' " + (apenasAtivos ? " AND ativo = 1 " : "") + " ORDER BY nome");
+
+		try(	
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE login <> 'admin' " + (apenasAtivos ? " AND ativo = 1 " : "") + " ORDER BY nome")
+			){
+
 			List<Usuario> list = new ArrayList<Usuario>();
 			
 			while(rs.next()){
@@ -113,13 +85,6 @@ public class UsuarioDAO {
 			}
 			
 			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
 		}
 	}
 	
@@ -129,44 +94,37 @@ public class UsuarioDAO {
 				(apenasAtivos ? " AND ativo = 1 " : "") +
 				(apenasExternos ? " AND externo = 1 " : "") +
 				"ORDER BY nome";
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement(sql);
+
+		try(
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql);
+			){
+
 		
 			if(!nome.isEmpty()){
 				stmt.setString(1, "%" + nome + "%");
 			}
 			
-			rs = stmt.executeQuery();
-			List<Usuario> list = new ArrayList<Usuario>();
-			
-			while(rs.next()){
-				list.add(this.carregarObjeto(rs));
+			try(ResultSet rs = stmt.executeQuery()){
+				List<Usuario> list = new ArrayList<Usuario>();
+				
+				while(rs.next()){
+					list.add(this.carregarObjeto(rs));
+				}
+				
+				return list;
 			}
 			
-			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
 		}
 	}
 	
 	public int salvar(Usuario usuario) throws SQLException{
 		boolean insert = (usuario.getIdUsuario() == 0);
-		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
+		try( Connection conn = ConnectionDAO.getInstance().getConnection()){
+			
 		
 			if(insert){
 				stmt = conn.prepareStatement("INSERT INTO usuarios(nome, login, senha, email, externo, ativo, administrador) VALUES(?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
@@ -202,8 +160,7 @@ public class UsuarioDAO {
 				rs.close();
 			if((stmt != null) && !stmt.isClosed())
 				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+
 		}
 	}
 	
@@ -234,57 +191,37 @@ public class UsuarioDAO {
 		
 		if(sql != ""){
 			List<String> emails = new ArrayList<String>();
-			Connection conn = null;
-			Statement stmt = null;
-			ResultSet rs = null;
-			
-			try{
-				conn = ConnectionDAO.getInstance().getConnection();
-				stmt = conn.createStatement();
-			
-				rs = stmt.executeQuery("SELECT email FROM usuarios WHERE idUsuario IN (" + sql + ")");
-			
+
+			try(
+					Connection conn = ConnectionDAO.getInstance().getConnection();
+					Statement stmt = conn.createStatement();
+					ResultSet rs = stmt.executeQuery("SELECT email FROM usuarios WHERE idUsuario IN (" + sql + ")");	
+				){
+
 				while(rs.next()){
 					emails.add(rs.getString("email"));
 				}
 				
 				return (String[])emails.toArray();
-			}finally{
-				if((rs != null) && !rs.isClosed())
-					rs.close();
-				if((stmt != null) && !stmt.isClosed())
-					stmt.close();
-				if((conn != null) && !conn.isClosed())
-					conn.close();
 			}
 		}else
 			return null;
 	}
 	
 	public boolean podeCriarAta(int idUsuario) throws SQLException{
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.createStatement();
-		
-			rs = stmt.executeQuery("SELECT COUNT(orgaos.idOrgao) AS qtde FROM orgaos " +
-				"WHERE idPresidente=" + String.valueOf(idUsuario) + " OR idSecretario=" + String.valueOf(idUsuario));
-		
+
+		try(
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT COUNT(orgaos.idOrgao) AS qtde FROM orgaos " +
+						"WHERE idPresidente=" + String.valueOf(idUsuario) + " OR idSecretario=" + String.valueOf(idUsuario))
+			){
+
 			if(rs.next()){
 				return (rs.getInt("qtde") > 0);
 			}else{
 				return false;
 			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
 		}
 	}
 
