@@ -1,6 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="true" nesting-relationships="true">  
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="br.edu.utfpr.dv.sireata.dao.PautaDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/PautaDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="183" x="35" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.edu.utfpr.dv.sireata.dao.OrgaoDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/OrgaoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="231" x="1050" y="-431"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.edu.utfpr.dv.sireata.dao.CampusDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/CampusDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="226" x="258" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.edu.utfpr.dv.sireata.dao.AtaParticipanteDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/AtaParticipanteDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="229" x="524" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.edu.utfpr.dv.sireata.dao.DepartamentoDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/DepartamentoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="268" x="1090" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.edu.utfpr.dv.sireata.dao.UsuarioDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/UsuarioDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="236" x="793" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="br.edu.utfpr.dv.sireata.dao.AtaDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/AtaDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="239" x="1398" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="br.edu.utfpr.dv.sireata.dao.ConnectionDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/ConnectionDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="170" x="1050" y="423"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="br.edu.utfpr.dv.sireata.dao.AnexoDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/AnexoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="188" x="1677" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="br.edu.utfpr.dv.sireata.dao.ComentarioDAO" project="sireata" 
+    file="/sireata/src/main/java/br/edu/utfpr/dv/sireata/dao/ComentarioDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="210" x="1905" y="-112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="13">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="15">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="16" name="instance"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="18">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="20">    
+    <bendpoint x="1059" y="-112"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="21">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="23">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
