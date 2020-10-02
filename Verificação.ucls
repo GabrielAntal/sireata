@@ -117,27 +117,23 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="18">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="19">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <dependency id="20">    
+  <dependency id="19">    
     <bendpoint x="1059" y="-112"/>    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <dependency id="21">    
+  <dependency id="20">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <dependency id="22">    
+  <dependency id="21">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <dependency id="23">    
+  <dependency id="22">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
