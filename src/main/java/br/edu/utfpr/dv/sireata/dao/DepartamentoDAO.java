@@ -9,9 +9,10 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.dv.sireata.dao.Strategy.strategyEssentials;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 
-public class DepartamentoDAO {
+public class DepartamentoDAO implements strategyEssentials<Departamento>{
 
 	public Departamento buscarPorId(int id) throws SQLException{
 		
