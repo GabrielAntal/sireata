@@ -8,10 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.dv.sireata.dao.Strategy.strategyEssentials;
 import br.edu.utfpr.dv.sireata.model.Comentario;
 import br.edu.utfpr.dv.sireata.model.Comentario.SituacaoComentario;
 
-public class ComentarioDAO {
+public class ComentarioDAO implements strategyEssentials<Comentario>{
 	
 	public Comentario buscarPorId(int id) throws SQLException{
 
