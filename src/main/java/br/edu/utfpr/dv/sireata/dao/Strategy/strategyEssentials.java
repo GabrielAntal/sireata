@@ -7,16 +7,16 @@ import java.util.List;
 
 
 
-public abstract class strategyEssentials<Essentials> {
+public abstract interface strategyEssentials<Essentials> {
 
 	
-	public abstract int buscaPorID(int id) throws SQLException;
+	public  int buscaPorID(int id) throws SQLException;
 	
-	public abstract int salvar(Essentials ess) throws SQLException;
+	public  int salvar(Essentials ess) throws SQLException;
 	
-	public abstract List<Essentials> listarTodos(boolean apenasAtivos) throws SQLException;
+	public  List<Essentials> listarTodos(boolean apenasAtivos) throws SQLException;
 	
-	public abstract void excluir(int id) throws SQLException;
+	public  void excluir(int id) throws SQLException;
 	
 	
 	
