@@ -8,9 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.dv.sireata.dao.Strategy.strategyEssentials;
 import br.edu.utfpr.dv.sireata.model.AtaParticipante;
 
-public class AtaParticipanteDAO {
+public class AtaParticipanteDAO implements strategyEssentials<AtaParticipante>{
 	
 	public AtaParticipante buscarPorId(int id) throws SQLException{
 
